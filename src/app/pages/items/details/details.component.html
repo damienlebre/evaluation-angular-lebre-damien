@@ -1,0 +1,27 @@
+<div class="row mt-5">
+
+  <div
+    *ngIf="(items$ | async) as item"
+    class="card mt-3 mx-auto shadow mt-5" style="width: 23rem;">
+    <div class="card-header bg-secondary bg-gradient text-center text-light fst-italic">Item Card</div>
+    <img src="assets/img/Item.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text-center fw-bolder fst-italic">{{item.name}}</h5>
+      <p class="card-text">{{item.description}}</p>
+      <div class="d-flex flex-row my-3">
+        <div class="col-5">
+          <p class="card-text fw-bolder">Rarity : </p>
+          <p class="card-text fw-bolder">Carry Limit : </p>
+          <p class="card-text fw-bolder">Value : </p>
+        </div>
+        <div class="col-7">
+          <p class="card-text">{{item.rarity}}</p>
+          <p class="card-text">{{item.carryLimit}}</p>
+          <p class="card-text">{{item.value}}</p>
+        </div>
+      </div>
+
+      <a [routerLink]="['/']" class="btn btn-outline-dark">Revenir sur la liste</a>
+    </div>
+  </div>
+</div>

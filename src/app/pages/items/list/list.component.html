@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-end mt-3">
+  <button
+    class="btn btn-success mb-2"
+
+  >
+    Create New Item
+  </button>
+</div>
+
+<div class="mt-2">
+  <table class="table table-striped mt-5">
+    <thead class="table-dark">
+    <tr>
+      <th class="col-1">ID</th>
+      <th class="col-2">Name</th>
+      <th class="col-3">Description</th>
+      <th class="col-1">Rarity</th>
+      <th class="col-1">Carry limit</th>
+      <th class="col-1">Value</th>
+      <th class="col-2">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items$ | async">
+<!--      <th scope="row"></th>-->
+      <td class="col-1">{{item.id}}</td>
+      <td class="col-2">{{item.name}}</td>
+      <td class="col-3">{{item.description}}</td>
+      <td class="col-1">{{item.rarity}}</td>
+      <td class="col-1">{{item.carryLimit}}</td>
+      <td class="col-1">{{item.value}}</td>
+      <td class="col-2">
+        <!--  C'est la route dans l'application front. Le routeur link concatène le /users avec l'id de l'utilisateur-->
+        <a [routerLink]="['/', 'items', item.id]"
+           class="btn btn-outline-primary text-uppercase mx-2">
+          DÉTAILS
+        </a>
+        <button
+          class="btn btn-outline-warning text-uppercase mx-2"
+
+        >
+          ÉDITER
+        </button>
+        <button
+
+          class="btn btn-outline-danger text-uppercase mx-2">
+          SUPPR.
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
