@@ -1,53 +1,65 @@
-<div class="d-flex justify-content-end mt-3">
-  <button
-    class="btn btn-success mb-2"
-
-  >
-    Create New Item
-  </button>
-</div>
-
-<div class="mt-2">
-  <table class="table table-striped mt-5">
-    <thead class="table-dark">
-    <tr>
-      <th class="col-1">ID</th>
-      <th class="col-2">Name</th>
-      <th class="col-3">Description</th>
-      <th class="col-1">Rarity</th>
-      <th class="col-1">Carry limit</th>
-      <th class="col-1">Value</th>
-      <th class="col-2">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of items$ | async">
-<!--      <th scope="row"></th>-->
-      <td class="col-1">{{item.id}}</td>
-      <td class="col-2">{{item.name}}</td>
-      <td class="col-3">{{item.description}}</td>
-      <td class="col-1">{{item.rarity}}</td>
-      <td class="col-1">{{item.carryLimit}}</td>
-      <td class="col-1">{{item.value}}</td>
-      <td class="col-2">
-        <!--  C'est la route dans l'application front. Le routeur link concatène le /users avec l'id de l'utilisateur-->
-        <a [routerLink]="['/', 'items', item.id]"
-           class="btn btn-outline-primary text-uppercase mx-2">
-          DÉTAILS
-        </a>
+<section class="listItem min-vh-100">
+  <div class="bg-image h-100" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img1.jpg');">
+    <div class="mask d-flex flex-column align-items-center h-100" style="background-color: rgba(0,0,0,.35);">
+      <div class="d-flex justify-content-end mt-3">
         <button
-          class="btn btn-outline-warning text-uppercase mx-2"
+          class="btn btn-success mb-2"
 
         >
-          ÉDITER
+          Create New Item
         </button>
-        <button
+      </div>
 
-          class="btn btn-outline-danger text-uppercase mx-2">
-          SUPPR.
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+<!--      <div class="container">-->
+        <div class="row justify-content-center">
+          <div>
+            <div class="table-responsive" data-mdb-perfect-scrollbar="true" style="position: relative; height: 445px;">
+              <table class="table table-striped mt-5" >
+                <thead class="table-dark">
+                <tr>
+                  <th class="col-1">ID</th>
+                  <th class="col-2">Name</th>
+                  <th class="col-3">Description</th>
+                  <th class="col-1">Rarity</th>
+                  <th class="col-1">Carry limit</th>
+                  <th class="col-1">Value</th>
+                  <th class="col-2">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of items$ | async">
+                  <!--      <th scope="row"></th>-->
+                  <td class="col-1">{{item.id}}</td>
+                  <td class="col-2">{{item.name}}</td>
+                  <td class="col-3">{{item.description}}</td>
+                  <td class="col-1">{{item.rarity}}</td>
+                  <td class="col-1">{{item.carryLimit}}</td>
+                  <td class="col-1">{{item.value}}</td>
+                  <td class="col-2">
+                    <!--  C'est la route dans l'application front. Le routeur link concatène le /users avec l'id de l'utilisateur-->
+                    <a [routerLink]="['/', 'items', item.id]"
+                       class="btn btn-outline-primary text-uppercase mx-2">
+                      DÉTAILS
+                    </a>
+                    <button
+                      class="btn btn-outline-warning text-uppercase mx-2"
+
+                    >
+                      ÉDITER
+                    </button>
+                    <button
+
+                      class="btn btn-outline-danger text-uppercase mx-2">
+                      SUPPR.
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+<!--      </div>-->
+    </div>
+  </div>
+</section>

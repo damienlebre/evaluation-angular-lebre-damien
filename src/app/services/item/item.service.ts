@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment.development";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Item, ItemHttp} from "../../models/item.model";
@@ -7,6 +7,7 @@ import {firstValueFrom, map} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+
 export class ItemService {
 
   private baseUrlApi: string = environment.API_URL;
@@ -14,6 +15,7 @@ export class ItemService {
   private ressourceName: string = 'items'
 
   private fullBaseUrlApi: string;
+
   constructor(private http: HttpClient) {
     this.fullBaseUrlApi = `${this.baseUrlApi}${this.ressourceName}`;
   }
@@ -36,7 +38,7 @@ export class ItemService {
     return firstValueFrom(obsHttp$)
   }
 
-  getById(id: number):Promise<Item> {
+  getById(id: number): Promise<Item> {
     // const token = this.authService.token as string;
 
     const headers = new HttpHeaders({
@@ -52,5 +54,9 @@ export class ItemService {
       );
 
     return firstValueFrom(obsHttp$)
+  }
+
+  deleteById(id: number){
+
   }
 }
