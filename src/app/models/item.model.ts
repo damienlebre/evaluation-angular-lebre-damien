@@ -16,6 +16,8 @@ export interface Item{
   value: number
 }
 
+
+
 export namespace Item{
   export function mapperItemHttpToItem(itemHttp: ItemHttp) : Item{
     return {

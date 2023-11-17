@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ListComponent } from './pages/items/list/list.component';
 import { DetailsComponent } from './pages/items/details/details.component';
 import { ErrorComponent } from './pages/error/error.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormErrorsComponent} from "./components/form-errors/form-errors/form-errors.component";
 
 @NgModule({
   declarations: [
@@ -16,14 +18,17 @@ import { ErrorComponent } from './pages/error/error.component';
     HeaderComponent,
     ListComponent,
     DetailsComponent,
-    ErrorComponent
+    ErrorComponent,
+    FormErrorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -56,7 +56,20 @@ export class ItemService {
     return firstValueFrom(obsHttp$)
   }
 
-  deleteById(id: number){
+  deleteById(id: number): Promise<void> {
+
+    console.log("simulation de suppression de l'item avec l'id : ", id);
+    return Promise.resolve();
+  }
+
+  add(itemToAdd: Item): Promise<void>{
+    console.log(`Simulation d'ajout de l'item  ${itemToAdd.name} : `,itemToAdd)
+    return Promise.resolve();
+  }
+
+  edit(id: number, itemEdited: Item): Promise<void>{
+    console.log(`Simulation d'édition de l'item avec l'id ${id}, valeur(s) éditée(s) : `,itemEdited);
+    return Promise.resolve();
 
   }
 }

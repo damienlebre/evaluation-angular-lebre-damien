@@ -1,0 +1,49 @@
+<div *ngIf="control
+                  && control.invalid
+                  && (control.dirty || control.touched) && control.errors"
+     class="alert alert-danger p-2 my-1">
+
+  <div *ngIf="control.errors['required']">
+    Le champ '{{controlLabel}}' est obligatoire.
+  </div>
+
+<!--  <div *ngIf="control.errors['name']">-->
+<!--    Enter a name for your Item.-->
+<!--  </div>-->
+
+<!--  <div *ngIf="control.errors['description']">-->
+<!--    Add a description to your Item.-->
+<!--  </div>-->
+
+<!--  <div *ngIf="control.errors['rarity']">-->
+<!--    Add a rank of rarity to your Item.-->
+<!--  </div>-->
+
+<!--  <div *ngIf="control.errors['carryLimit']">-->
+<!--    Specify the Carry Limit for your Item.-->
+<!--  </div>-->
+
+<!--  <div *ngIf="control.errors['carryLimit']">-->
+<!--    Le champ '{{controlLabel}}' Specify the value of your Item.-->
+<!--  </div>-->
+
+  <div *ngIf="control.errors['minlength']">
+    Le champ '{{controlLabel}}' doit avoir au
+    minimum {{control.errors['minlength']['requiredLength']}} {{control.errors['minlength']['requiredLength'] === 1 ? 'caractère' : 'caractères'}}
+    .
+  </div>
+
+  <div *ngIf="control.errors['maxlength']">
+    Le champ '{{controlLabel}}' doit avoir au
+    maximum {{control.errors['maxlength']['requiredLength']}} {{control.errors['maxlength']['requiredLength'] === 1 ? 'caractère' : 'caractères'}}
+    .
+  </div>
+
+  <div *ngIf="control.errors['min']">
+    Le champ '{{controlLabel}}' doit valoir au minimum {{control.errors['min']['min']}}.
+  </div>
+
+  <div *ngIf="control.errors['max']">
+    Le champ '{{controlLabel}}' doit valoir au maximum {{control.errors['max']['max']}}.
+  </div>
+</div>
