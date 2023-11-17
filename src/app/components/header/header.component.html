@@ -1,21 +1,22 @@
 <header>
   <div class="px-3 py-2 text-bg-dark border-bottom">
-    <div class="container">
+    <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a [routerLink]="['/']" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-          Monster Hunter
+          <img src="assets/img/Monster_Hunter_Logo.png" alt="Logo"  height="54" class="d-inline-block align-text-top me-2">
         </a>
 
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
 
           <li>
             <a routerLink="/items" class="nav-link text-white text-secondary">
-              <fa-icon class="me-1" [icon]="iconHome"></fa-icon>
-              Home
+              <img src="assets/img/itemIcon.png">
+              Items List
             </a>
           </li>
-          <li>
+          <li *ngIf="isConnected$ | async">
             <button
+              (click)="onClickSignOut()"
               class="btn btn-outline-light">
               <fa-icon class="me-1" [icon]="iconSignout"></fa-icon>
               Logout

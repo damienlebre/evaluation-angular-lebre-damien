@@ -18,6 +18,9 @@ html, body {
   align-items: center;
   justify-content: center;
 }
+.card{
+  max-width: 535px;
+}
 .card-img-top{
   background-color: rgba(142, 134, 134, 0.25);
   border-radius: 0  0 10px 10px  ;

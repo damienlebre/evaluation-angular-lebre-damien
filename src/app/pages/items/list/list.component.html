@@ -1,10 +1,9 @@
-<section class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center"
-         style="background-image: url('assets/img/MHRiseSunbreak.jpg');">
+<section class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url('assets/img/MHRiseSunbreak.jpg');">
 
 
   <div class="mask d-flex flex-column align-items-center h-100 rounded-3">
 
-    <h1 class="text-white fw-bolder my-5">ITEMS</h1>
+    <h1 class="text-white fw-bolder my-5">Items List</h1>
     <div class="container">
 
       <div class="row justify-content-center">
@@ -18,11 +17,11 @@
               <tr class="h-auto">
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th class="text-center">Description</th>
                 <th>Rarity</th>
                 <th>Carry limit</th>
                 <th>Value</th>
-                <th>Actions</th>
+                <th class="text-center">Actions</th>
               </tr>
               </thead>
 
@@ -130,11 +129,11 @@
         <input type="text" class="form-control" id="floatingName" placeholder="Item Name"
                formControlName="name">
         <label for="floatingName">Item Name</label>
-        <app-form-errors [group] controlName="name" controlLabel="name"></app-form-errors>
+        <app-form-errors [group]="itemForm" controlName="name" controlLabel="name"></app-form-errors>
       </div>
 
       <div class="form-floating mt-2">
-        <textarea class="form-control" id="floatingDescription" placeholder="descrition of item"
+        <textarea class="form-control" id="floatingDescription" placeholder="Description of item"
                formControlName="description" rows="4"></textarea>
         <label for="floatingDescription">Description </label>
         <app-form-errors [group]="itemForm" controlName="description" controlLabel="description"></app-form-errors>

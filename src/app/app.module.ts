@@ -11,6 +11,7 @@ import { DetailsComponent } from './pages/items/details/details.component';
 import { ErrorComponent } from './pages/error/error.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FormErrorsComponent} from "./components/form-errors/form-errors/form-errors.component";
+import { SigninComponent } from './pages/auth/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormErrorsComponent} from "./components/form-errors/form-errors/form-err
     ListComponent,
     DetailsComponent,
     ErrorComponent,
-    FormErrorsComponent
+    FormErrorsComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
