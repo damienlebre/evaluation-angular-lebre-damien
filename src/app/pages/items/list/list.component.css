@@ -10,12 +10,25 @@ html, body {
 .mask{
   background-color: rgba(0,0,0,.35);
 }
+.table-responsive{
+  position: relative;
+  height: 625px;
+}
+thead{
+  /*position: sticky;*/
+  /*top: 0;*/
+  z-index: 10;
+}
 .listItem{
   height: 100%;
 }
-
-
 tbody td {
   font-weight: 500;
   color: #999999;
 }
+
+.modal-header, .modal-body, .modal-footer, .vertical-alignment-helper,.vertical-align-center {
+  background: #212529;
+  color: #FFFFFF;
+}
+

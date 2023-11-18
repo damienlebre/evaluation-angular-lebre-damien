@@ -15,6 +15,8 @@ export class ListComponent implements OnInit{
   items$?: Promise<Item[]>
   selectedItemDeleteConfirmation? : Item
   showDeleteSuccessToast : boolean = false
+  showAddSuccessToast : boolean = false
+  showEditSuccessToast : boolean = false
   selectedItemForEdition?: Item
   itemForm?: FormGroup
 
@@ -27,13 +29,14 @@ export class ListComponent implements OnInit{
   onClickAddItem(modalItemForm: any): void {
     this.initItemForm();
 
-    const modal = this.modalService.open(modalItemForm);
+    const modal = this.modalService.open(modalItemForm, {centered:true});
     modal.result
       .then(() => {
         const itemForm: Item = { ...this.itemForm?.value };
 
         this.itemService.add(itemForm)
           .then(() => {
+            this.showAddSuccessToast = true
             this.items$ = this.itemService.getAll();
             modal.close();
           });
@@ -48,12 +51,13 @@ export class ListComponent implements OnInit{
     this.initItemForm(itemToEdit);
     this.selectedItemForEdition = itemToEdit;
 
-    const modal = this.modalService.open(modalItemFrom);
+    const modal = this.modalService.open(modalItemFrom, {centered:true});
     modal.result
       .then(() => {
         const itemForm: Item = { ...this.itemForm?.value };
         this.itemService.edit(itemToEdit.id, itemForm)
           .then(() => {
+            this.showEditSuccessToast = true
             this.items$ = this.itemService.getAll();
             modal.close();
           });
@@ -74,7 +78,7 @@ export class ListComponent implements OnInit{
 
     this.selectedItemDeleteConfirmation = item
 
-    const modal = this.modalService.open(modalDeleteItem)
+    const modal = this.modalService.open(modalDeleteItem, {centered:true})
 
     modal.result
       .then(()=>{

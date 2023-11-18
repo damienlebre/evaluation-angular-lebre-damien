@@ -1,19 +1,23 @@
+<!-- ##################################################-->
+                  <!-- # item List #-->
+<!-- ##################################################-->
 <section class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url('assets/img/MHRiseSunbreak.jpg');">
 
 
   <div class="mask d-flex flex-column align-items-center h-100 rounded-3">
 
     <h1 class="text-white fw-bolder my-5">Items List</h1>
+
     <div class="container">
 
       <div class="row justify-content-center">
         <div class="">
 
-          <div class="table-responsive mx-2" data-mdb-perfect-scrollbar="true"
-               style="position: relative; height: 445px;">
+          <div class="table-responsive mx-2" data-mdb-perfect-scrollbar="true">
 
             <table class="table table-striped">
-              <thead class="table-dark col-12">
+
+              <thead class="table-dark col-12 position-sticky top-0">
               <tr class="h-auto">
                 <th>ID</th>
                 <th>Name</th>
@@ -35,30 +39,39 @@
                 <td>{{item.value}}</td>
                 <td>
                   <div class="btn-group">
+
                     <a [routerLink]="['/', 'items', item.id]"
                        class="btn btn-outline-primary text-uppercase mx-2 text-wrap">
                       DÉTAILS
                     </a>
+
                     <button
                       class="btn btn-outline-warning text-uppercase mx-2"
                       (click)="onClickEditItem(modalItemForm, item)">
                       ÉDITER
                     </button>
+
                     <button
                       (click)="onClickDeleteItem(modalDeleteItem, item)"
                       class="btn btn-outline-danger text-uppercase mx-2">
                       SUPPR.
                     </button>
+
                   </div>
+
                 </td>
               </tr>
               </tbody>
 
             </table>
+
           </div>
+
         </div>
       </div>
+
     </div>
+
     <div class="d-flex justify-content-end mt-3 mb-5">
 
       <button class="btn btn-success mb-2"
@@ -67,8 +80,13 @@
       </button>
 
     </div>
+
   </div>
+
 </section>
+<!-- ##################################################-->
+                <!-- # Delete Toast #-->
+<!-- ##################################################-->
 <ngb-toast
   *ngIf="showDeleteSuccessToast"
   class="position-fixed top-0 end-0 p-1 m-3 bg-success text-light"
@@ -77,101 +95,106 @@
   (hidden)="showDeleteSuccessToast = false"
 >Suppression effectuée avec succès.
 </ngb-toast>
+<!-- ##################################################-->
+              <!-- # Add Toast #-->
+<!-- ##################################################-->
+<ngb-toast
+  *ngIf="showAddSuccessToast"
+  class="position-fixed top-0 end-0 p-1 m-3 bg-success text-light"
+  [autohide]="true"
+  [delay]="4000"
+  (hidden)="showDeleteSuccessToast = false"
+>Item ajouté avec succès.
+</ngb-toast>
+<!-- ##################################################-->
+              <!-- # Edit Toast #-->
+<!-- ##################################################-->
+<ngb-toast
+  *ngIf="showEditSuccessToast"
+  class="position-fixed top-0 end-0 p-1 m-3 bg-success text-light"
+  [autohide]="true"
+  [delay]="4000"
+  (hidden)="showDeleteSuccessToast = false"
+>Item modifié avec succès.
+</ngb-toast>
 
 <!-- ##################################################-->
-<!-- # Modale pour la suppression d'utilisateur #-->
+            <!-- # item deleting Modal #-->
 <!-- ##################################################-->
-<ng-template #modalDeleteItem let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-title">Suppression utilisateur</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-describedby="modal-title"
-      (click)="modal.dismiss('cross')"
-    ></button>
+<ng-template #modalDeleteItem let-modal class="modal-dialog modal-dialog-centered">
+
+  <div class="modal-header border-0">
+    <h4 class="modal-title" id="modal-title">Suppression Item</h4>
+    <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('cross')"></button>
   </div>
+
   <div class="modal-body">
-    <p>
-      <strong>Étes-vous sûr de vouloir supprimer l'utilisateur <span
-        class="text-primary">{{selectedItemDeleteConfirmation?.name}}</span> ?</strong>
-    </p>
-    <p>
-      <span class="text-danger">La suppression est irréversible.</span>
-
-    </p>
+    <p><strong>Êtes-vous sûr de vouloir supprimer l'Item <span class="text-primary fst-italic">{{selectedItemDeleteConfirmation?.name}}</span> ?</strong></p>
+    <p class="d-flex align-items-center"><img src="assets/img/warning.png" alt="Logo" height="54" class="d-inline-block align-text-top me-2"><span class="text-danger">Attention! La suppression est irréversible.</span></p>
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Annuler</button>
+
+  <div class="modal-footer border-0">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Annuler</button>
     <button type="button" class="btn btn-danger" (click)="modal.close()">Ok</button>
   </div>
+
 </ng-template>
 
 <!-- ##################################################-->
-<!-- # Modale pour l'ajout et l'édition d'utilisateur #-->
+            <!-- # add/edit Item Modal #-->
 <!-- ##################################################-->
 <ng-template #modalItemForm let-modal>
-  <div class="modal-header">
+
+  <div class="modal-header border-0">
     <!--    Changement de titre si on a un id ou non-->
-    <h4 class="modal-title"
-        id="modal-title-item-form"> {{ selectedItemForEdition ? 'Modifier un item' : 'Ajouter un item' }} </h4>
+    <h4 class="modal-title" id="modal-title-item-form">{{ selectedItemForEdition ? 'Modifier un item' : 'Ajouter un item' }}</h4>
     <button
-      type="button"
-      class="btn-close"
-      aria-describedby="modal-title-user-form"
-      (click)="modal.dismiss()"
-    ></button>
+      type="button" class="btn-close" aria-describedby="modal-title-user-form" (click)="modal.dismiss()"></button>
   </div>
+
   <div class="modal-body">
     <form *ngIf="itemForm" [formGroup]="itemForm">
 
       <div class="form-floating mt-2">
         <input type="text" class="form-control" id="floatingName" placeholder="Item Name"
                formControlName="name">
-        <label for="floatingName">Item Name</label>
+        <label for="floatingName" class="text-black">Item Name</label>
         <app-form-errors [group]="itemForm" controlName="name" controlLabel="name"></app-form-errors>
       </div>
 
       <div class="form-floating mt-2">
         <textarea class="form-control" id="floatingDescription" placeholder="Description of item"
                formControlName="description" rows="4"></textarea>
-        <label for="floatingDescription">Description </label>
+        <label for="floatingDescription" class="text-black">Description </label>
         <app-form-errors [group]="itemForm" controlName="description" controlLabel="description"></app-form-errors>
       </div>
 
       <div class="form-floating mt-2">
         <input type="number" class="form-control" id="floatingRarity" placeholder="Rarity" formControlName="rarity">
-        <label for="floatingRarity">Rarity</label>
+        <label for="floatingRarity" class="text-black">Rarity</label>
         <app-form-errors [group]="itemForm" controlName="rarity" controlLabel="rarity"></app-form-errors>
       </div>
 
       <div class="form-floating mt-2">
         <input type="number" class="form-control" id="floatingCarryLimit" placeholder="Carry Limit"
                formControlName="carryLimit">
-        <label for="floatingCarryLimit">Carry Limit</label>
+        <label for="floatingCarryLimit" class="text-black">Carry Limit</label>
         <app-form-errors [group]="itemForm" controlName="carryLimit" controlLabel="Carry Limit"></app-form-errors>
       </div>
 
       <div class="form-floating mt-2">
         <input type="number" class="form-control" id="floatingValue" placeholder="Value of Item" formControlName="value" pattern="[0-9]+(\.[0-9]+)?" title="valeur numérique svp">
-        <label for="floatingValue">Value</label>
+        <label for="floatingValue" class="text-black">Value</label>
         <app-form-errors [group]="itemForm" controlName="value" controlLabel="value"></app-form-errors>
       </div>
 
     </form>
   </div>
 
-  <div class="modal-footer">
+  <div class="modal-footer border-0">
 
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Annuler</button>
-    <button
-      type="button"
-      class="btn btn-dark"
-      [disabled]="itemForm && itemForm.invalid"
-      (click)="onSubmitItemForm(modal)"
-    >
-      {{ selectedItemForEdition ? 'Modifier' : 'Ajouter' }}
-    </button>
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Annuler</button>
+    <button type="button" class="btn btn-success" [disabled]="itemForm && itemForm.invalid"   (click)="onSubmitItemForm(modal)">{{ selectedItemForEdition ? 'Modifier' : 'Ajouter' }}</button>
 
   </div>
 

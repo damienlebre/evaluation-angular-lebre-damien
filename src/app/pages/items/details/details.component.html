@@ -1,16 +1,23 @@
-<section class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url('assets/img/MHGenVerdant.png');">
+<!-- ##################################################-->
+                <!-- # Detail Item Card #-->
+<!-- ##################################################-->
+<main class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url('assets/img/MHGenVerdant.png');">
 
-  <div class="row  col-lg-4 col-md-8 col-sm-10 col-xs-10 deck">
+  <section class="row col-lg-4 col-md-8 col-sm-10 col-xs-10 deck">
 
     <div class="mask m-3 rounded-3 px-5">
+
       <h1 class="text-white text-center fw-bolder my-5">Items Detail</h1>
+
       <div
         *ngIf="(items$ | async) as item"
         class="card mx-auto shadow-lg my-5" >
 
         <div class="card-header bg-secondary bg-gradient text-center text-light fst-italic">Item</div>
         <img src="assets/img/Item.png" class="card-img-top" alt="...">
+
         <div class="card-body">
+
           <h5 class="card-title text-center fw-bolder text-bg-secondary text-white py-1 m-0 rounded-top-3">{{item.name}}</h5>
           <p class="card-text text-center bg-description fst-italic">{{item.description}}</p>
           <div class="d-flex flex-row  my-3">
@@ -41,6 +48,6 @@
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+</main>

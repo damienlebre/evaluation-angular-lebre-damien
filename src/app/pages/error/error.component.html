@@ -1,1 +1,21 @@
-<p>error works!</p>
+<!-- ##################################################-->
+                  <!-- # ErrorPage #-->
+<!-- ##################################################-->
+<header>
+<section class="bg-image min-vh-100 d-flex flex-column align-items-center justify-content-center" style="background-image: url('assets/img/MHRiseSunbreak.jpg');">
+  <div class="row col-lg-6 col-md-8 col-sm-10">
+    <div class="mask m-3 rounded-3 px-5 ">
+      <div class="card text-center my-5">
+        <div class="card-header bg-dark text-white">
+          <h5 class="card-title">Erreur 404</h5>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Page non trouvée</h2>
+          <img class="card-img w-25" src="assets/img/warning.png" alt="warning logo">
+          <p class="card-text">La page que vous recherchez n'a pas été trouvée.</p>
+          <a [routerLink]="['/']" class="btn btn-dark">Retour à l'accueil</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
