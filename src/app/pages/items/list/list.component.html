@@ -8,6 +8,15 @@
 
     <h1 class="text-white fw-bolder my-5">Items List</h1>
 
+    <div class="d-flex mb-2 justify-content-around">
+      <input type="text"
+             class="input-group-text text-start"
+             size="50"
+             placeholder="Find Item by name"
+             (input)="onInputSearchFilter($event)">
+
+    </div>
+
     <div class="container">
 
       <div class="row justify-content-center">
@@ -42,19 +51,19 @@
 
                     <a [routerLink]="['/', 'items', item.id]"
                        class="btn btn-outline-primary text-uppercase mx-2 text-wrap">
-                      DÉTAILS
+                      DETAILS
                     </a>
 
                     <button
                       class="btn btn-outline-warning text-uppercase mx-2"
                       (click)="onClickEditItem(modalItemForm, item)">
-                      ÉDITER
+                      EDIT
                     </button>
 
                     <button
                       (click)="onClickDeleteItem(modalDeleteItem, item)"
                       class="btn btn-outline-danger text-uppercase mx-2">
-                      SUPPR.
+                      DEL.
                     </button>
 
                   </div>
@@ -76,7 +85,7 @@
 
       <button class="btn btn-success mb-2"
               (click)="onClickAddItem(modalItemForm)">
-        Create New Item
+        CREATE NEW ITEM
       </button>
 
     </div>

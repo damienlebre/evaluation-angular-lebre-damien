@@ -34,16 +34,16 @@ export class AuthService {
         this.internalToken$.next('MonsterHunt.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.SECRETJWTTOKEN');
         resolve();
       } else {
-        reject(Error('Identifiants incorrects !'));
+        reject(Error('bad credentials !'));
       }
     });
   }
 
 
   signOut(): void {
-    // Simuler suppression token du localStorage
+    // Simulate deletion of token from localStorage
     localStorage.removeItem('token');
-    // Simuler mise à jour du BehaviorSubject pour indiquer que l'utilisateur est déconnecté
+    // Simulate updating the BehaviorSubject to indicate that the user is logged out
     this.internalToken$.next(undefined);
   }
 }
