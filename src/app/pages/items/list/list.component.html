@@ -102,7 +102,7 @@
   [autohide]="true"
   [delay]="4000"
   (hidden)="showDeleteSuccessToast = false"
->Suppression effectuée avec succès.
+>Deletion completed successfully.
 </ngb-toast>
 <!-- ##################################################-->
               <!-- # Add Toast #-->
@@ -113,7 +113,7 @@
   [autohide]="true"
   [delay]="4000"
   (hidden)="showDeleteSuccessToast = false"
->Item ajouté avec succès.
+>Item added successfully.
 </ngb-toast>
 <!-- ##################################################-->
               <!-- # Edit Toast #-->
@@ -124,7 +124,7 @@
   [autohide]="true"
   [delay]="4000"
   (hidden)="showDeleteSuccessToast = false"
->Item modifié avec succès.
+>Item modified successfully.
 </ngb-toast>
 
 <!-- ##################################################-->
@@ -155,7 +155,7 @@
 <ng-template #modalItemForm let-modal>
 
   <div class="modal-header border-0">
-    <!--    Changement de titre si on a un id ou non-->
+    <!--    set title if we have an Id or not-->
     <h4 class="modal-title" id="modal-title-item-form">{{ selectedItemForEdition ? 'Modifier un item' : 'Ajouter un item' }}</h4>
     <button
       type="button" class="btn-close" aria-describedby="modal-title-user-form" (click)="modal.dismiss()"></button>
