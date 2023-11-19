@@ -27,7 +27,7 @@ export class AuthService {
 
   signIn(email: string, password: string, keepConnection: boolean): Promise<void | undefined> {
     return new Promise((resolve, reject) => {
-      if (email === 'admin@admin.com' && password === 'Passe@123') {
+      if (email === 'admin@admin.fr' && password === 'P@ssw0rd2023') {
         if (keepConnection) {
           localStorage.setItem('token', 'MonsterHunt.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.SECRETJWTTOKEN');
         }

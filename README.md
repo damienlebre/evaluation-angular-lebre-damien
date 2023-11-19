@@ -3,8 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 ## App Infos
 Access the app by logging in with the following credentials:  
-email address: `admin@admin.com`   
-password: `Passe@123` 
+email address: `admin@admin.fr`   
+password: `P@ssw0rd2023` 
 
 ## Development server
 
