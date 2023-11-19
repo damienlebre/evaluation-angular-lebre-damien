@@ -13,7 +13,7 @@
         *ngIf="(items$ | async) as item"
         class="card mx-auto shadow-lg my-5" >
 
-        <div class="card-header bg-secondary bg-gradient text-center text-light fst-italic">Item</div>
+        <div class="card-header bg-secondary bg-gradient text-center text-light fst-italic">Item#{{item.id}}</div>
         <img src="assets/img/Item.png" class="card-img-top" alt="...">
 
         <div class="card-body">

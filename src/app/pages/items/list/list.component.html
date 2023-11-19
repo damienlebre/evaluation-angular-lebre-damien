@@ -133,17 +133,17 @@
 <ng-template #modalDeleteItem let-modal class="modal-dialog modal-dialog-centered">
 
   <div class="modal-header border-0">
-    <h4 class="modal-title" id="modal-title">Suppression Item</h4>
+    <h4 class="modal-title" id="modal-title">Deleting Item</h4>
     <button type="button" class="btn-close" aria-describedby="modal-title" (click)="modal.dismiss('cross')"></button>
   </div>
 
   <div class="modal-body">
-    <p><strong>Êtes-vous sûr de vouloir supprimer l'Item <span class="text-primary fst-italic">{{selectedItemDeleteConfirmation?.name}}</span> ?</strong></p>
-    <p class="d-flex align-items-center"><img src="assets/img/warning.png" alt="Logo" height="54" class="d-inline-block align-text-top me-2"><span class="text-danger">Attention! La suppression est irréversible.</span></p>
+    <p><strong>Are you sure you want to delete the Item?<span class="text-primary fst-italic">{{selectedItemDeleteConfirmation?.name}}</span> ?</strong></p>
+    <p class="d-flex align-items-center"><img src="assets/img/warning.png" alt="Logo" height="54" class="d-inline-block align-text-top me-2"><span class="text-danger">Attention! The deletion is irreversible.</span></p>
   </div>
 
   <div class="modal-footer border-0">
-    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Annuler</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
     <button type="button" class="btn btn-danger" (click)="modal.close()">Ok</button>
   </div>
 
@@ -156,7 +156,7 @@
 
   <div class="modal-header border-0">
     <!--    set title if we have an Id or not-->
-    <h4 class="modal-title" id="modal-title-item-form">{{ selectedItemForEdition ? 'Modifier un item' : 'Ajouter un item' }}</h4>
+    <h4 class="modal-title" id="modal-title-item-form">{{ selectedItemForEdition ? 'Edit an item' : 'Add an item' }}</h4>
     <button
       type="button" class="btn-close" aria-describedby="modal-title-user-form" (click)="modal.dismiss()"></button>
   </div>
